@@ -16,13 +16,13 @@ export default function AuthenticatedLayout({ header, children }) {
         },
         {
             name: "Users",
-            href: route("users.index"),
-            current: route().current("users.index"),
+            href: route("dashboard"),
+            current: route().current("dashboard"),
         },
         {
             name: "Absense",
-            href: route("absense.index"),
-            current: route().current("absense.index"),
+            href: route("dashboard"),
+            current: route().current("dashboard"),
         },
     ];
 
@@ -151,26 +151,15 @@ export default function AuthenticatedLayout({ header, children }) {
                     }
                 >
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
-                        >
-                            Dashboard
-                        </ResponsiveNavLink>
-
-                        <ResponsiveNavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
-                        >
-                            Users
-                        </ResponsiveNavLink>
-
-                        <ResponsiveNavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
-                        >
-                            Absense
-                        </ResponsiveNavLink>
+                        {menu.map((item, index) => {
+                            <ResponsiveNavLink
+                                key={index}
+                                href={item.href}
+                                active={item.current}
+                            >
+                                {item.name}
+                            </ResponsiveNavLink>;
+                        })}
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
