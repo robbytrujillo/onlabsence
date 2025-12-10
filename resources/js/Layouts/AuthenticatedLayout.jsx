@@ -152,13 +152,15 @@ export default function AuthenticatedLayout({ header, children }) {
                 >
                     <div className="pt-2 pb-3 space-y-1">
                         {menu.map((item, index) => {
-                            <ResponsiveNavLink
-                                key={index}
-                                href={item.href}
-                                active={item.current}
-                            >
-                                {item.name}
-                            </ResponsiveNavLink>;
+                            return (
+                                <ResponsiveNavLink
+                                    key={index}
+                                    href={item.href}
+                                    active={item.current}
+                                >
+                                    {item.name}
+                                </ResponsiveNavLink>
+                            );
                         })}
                     </div>
 
